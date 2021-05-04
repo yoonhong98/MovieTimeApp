@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "922338500674",
+    "firebase_url": "https://movietimeapp-1945b-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "movietimeapp-1945b",
+    "storage_bucket": "movietimeapp-1945b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:922338500674:android:f1c2939f439bea082f4ddb",
+        "android_client_info": {
+          "package_name": "com.example.movietimeapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "922338500674-q3s0f0b1khn7jk7i54bvb6us7hjrnbc7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAPpKqFjMwKJvHRwEQNB8JvprE7F-czRZQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "922338500674-q3s0f0b1khn7jk7i54bvb6us7hjrnbc7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
