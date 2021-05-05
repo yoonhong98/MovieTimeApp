@@ -3,7 +3,9 @@ package com.example.movietimeapp;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
@@ -11,14 +13,23 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.smarteist.autoimageslider.SliderView;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
 public class Homepage extends AppCompatActivity {
 
     private Button ns_Btn, cs_btn;
-    ViewPager viewPager;
+    SliderView sliderView;
+    ArrayList<ImageSliderModel> list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,13 +41,9 @@ public class Homepage extends AppCompatActivity {
 
         ns_Btn = findViewById(R.id.btn_ns);
         cs_btn = findViewById(R.id.btn_cs);
-        viewPager = findViewById(R.id.image_slider);
+        sliderView = findViewById(R.id.imageSlider);
 
-        imageAdapter imageAdapter = new imageAdapter(this);
-        viewPager.setAdapter(imageAdapter);
-
-        Timer timer =new Timer();
-        timer.scheduleAtFixedRate(new MyTimerTasks(),2000, 3000);
+        loadSlide();
 
         BottomNavigationView btm_nav = findViewById(R.id.btm_nav_bar);
         btm_nav.setSelectedItemId(R.id.navigation_home);
@@ -64,20 +71,26 @@ public class Homepage extends AppCompatActivity {
         });
     }
 
-    public class MyTimerTasks extends TimerTask{
+    private void loadSlide(){
+        list = new ArrayList<>();
 
-        @Override
-        public void run() {
-            Homepage.this.runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    if (viewPager.getCurrentItem()==0){
-                        viewPager.setCurrentItem(1);
-                    }else{
-                        viewPager.setCurrentItem(0);
-                    }
+        DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference();
+        dbRef.child("imageUrl").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for(DataSnapshot ds: snapshot.getChildren()){
+                    String url = ds.getValue(String.class);
+                    list.add(new ImageSliderModel(url));
                 }
-            });
-        }
+                sliderView.setSliderAdapter(new imageAdapter(Homepage.this, list));
+                sliderView.startAutoCycle();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(getApplicationContext(), "unable to fetch data", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
+
 }
