@@ -27,6 +27,8 @@ import java.util.TimerTask;
 
 public class Homepage extends AppCompatActivity {
 
+    //homepage code
+
     private Button ns_Btn, cs_btn;
     SliderView sliderView;
     ArrayList<ImageSliderModel> list;
