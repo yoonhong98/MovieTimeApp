@@ -1,6 +1,7 @@
 package com.example.movietimeapp;
 
 import android.content.Context;
+import android.transition.Slide;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,55 +12,51 @@ import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
-public class imageAdapter extends PagerAdapter {
+import com.bumptech.glide.Glide;
+import com.smarteist.autoimageslider.SliderView;
+import com.smarteist.autoimageslider.SliderViewAdapter;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.zip.Inflater;
+
+public class imageAdapter extends SliderViewAdapter<imageAdapter.imageAdapterVH> {
 
     private Context context;
-    private LayoutInflater layoutInflater;
-    private Integer [] images = {R.drawable.godzilla_vs_kong, R.drawable.tom_and_jerry};
+    private List<ImageSliderModel> SliderItems;
 
-    public imageAdapter(Context context) {
+    public imageAdapter(Context context, List<ImageSliderModel> sliderItems) {
         this.context = context;
+        this.SliderItems = sliderItems;
+    }
+
+    @Override
+    public imageAdapterVH onCreateViewHolder(ViewGroup parent) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.image_layout, parent, false);
+        return new imageAdapterVH(view);
+    }
+
+    @Override
+    public void onBindViewHolder(imageAdapterVH viewHolder, int position) {
+        Glide.with(viewHolder.itemView)
+                .load(SliderItems.get(position).getImgUrl())
+                .into(viewHolder.imageView);
     }
 
     @Override
     public int getCount() {
-        return images.length;
+        return SliderItems.size();
     }
 
-    @Override
-    public boolean isViewFromObject(@NonNull View view, @NonNull Object object) {
-        return view == object;
-    }
+    class imageAdapterVH extends SliderViewAdapter.ViewHolder{
 
-    @NonNull
-    @Override
-    public Object instantiateItem(@NonNull ViewGroup container, int position) {
-        layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view = layoutInflater.inflate(R.layout.image_layout, null);
-        ImageView imageView = (ImageView) view.findViewById(R.id.imageView);
-        imageView.setImageResource(images[position]);
+        View itemView;
+        ImageView imageView;
 
-        view.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(position == 0){
-                    Toast.makeText(context,"Movie: King Kong",Toast.LENGTH_SHORT).show();
-                }
-                else{
-                    Toast.makeText(context,"Movie: Tom and Jerry",Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-
-        ViewPager vp = (ViewPager) container;
-        vp.addView(view, 0);
-        return view;
-    }
-
-    @Override
-    public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
-        ViewPager vp = (ViewPager) container;
-        View view = (View) object;
-        vp.removeView(view);
+        public imageAdapterVH(View itemView) {
+            super(itemView);
+            imageView = itemView.findViewById(R.id.imageSliderIV);
+            this.itemView = itemView;
+        }
     }
 }
