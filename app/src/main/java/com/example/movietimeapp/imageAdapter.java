@@ -1,24 +1,16 @@
 package com.example.movietimeapp;
 
 import android.content.Context;
-import android.transition.Slide;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.viewpager.widget.PagerAdapter;
-import androidx.viewpager.widget.ViewPager;
-
 import com.bumptech.glide.Glide;
-import com.smarteist.autoimageslider.SliderView;
 import com.smarteist.autoimageslider.SliderViewAdapter;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.zip.Inflater;
 
 public class imageAdapter extends SliderViewAdapter<imageAdapter.imageAdapterVH> {
 
@@ -41,6 +33,13 @@ public class imageAdapter extends SliderViewAdapter<imageAdapter.imageAdapterVH>
         Glide.with(viewHolder.itemView)
                 .load(SliderItems.get(position).getImgUrl())
                 .into(viewHolder.imageView);
+
+        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context, "position" + position, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override
