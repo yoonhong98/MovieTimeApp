@@ -22,17 +22,53 @@
         android:id="@+id/imageView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true"
         tools:srcCompat="@tools:sample/avatars" />
 
-    <Button
-        android:id="@+id/btn_register"
-        android:layout_width="300dp"
+    <TextView
+        android:id="@+id/tv_Aname"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="520dp"
-        android:text="Sign Up"
+        android:layout_marginTop="180dp"
+        android:text="NAME"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btn_editprofile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="250dp"
+        android:text="Edit Profile"
         android:textSize="25sp"
         android:textStyle="bold"
         app:iconPadding="10dp" />
+
+    <Button
+        android:id="@+id/btn_myticket"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="350dp"
+        android:text="My Ticket"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:iconPadding="10dp" />
+
+    <Button
+        android:id="@+id/btn_logout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="450dp"
+        android:text="Logout"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:iconPadding="10dp" />
+
 
 </RelativeLayout>
