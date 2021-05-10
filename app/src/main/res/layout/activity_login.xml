@@ -73,20 +73,21 @@
 
     <Button
         android:id="@+id/btn_login"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="430dp"
-        android:backgroundTint="@color/white"
+        android:layout_marginTop="440dp"
         android:text="Sign In"
-        android:textColor="#0C0C0C"
+        android:textSize="25sp"
         android:textStyle="bold" />
+
+
 
     <TextView
         android:id="@+id/tv_Forgotpassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="480dp"
+        android:layout_marginTop="500dp"
         android:layout_centerHorizontal="true"
         android:text="Forgot Password?"
         android:textColor="@color/white"
