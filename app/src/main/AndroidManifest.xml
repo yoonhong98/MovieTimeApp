@@ -12,10 +12,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MovieTimeApp">
-        <activity android:name=".login"></activity>
+        <activity android:name=".registration"></activity>
+        <activity android:name=".login" />
         <activity
             android:name=".Cinema_movie"
-            android:parentActivityName=".Cinema"></activity>
+            android:parentActivityName=".Cinema" />
         <activity android:name=".Account" />
         <activity android:name=".Contact_us" />
         <activity android:name=".Cinema" />
