@@ -3,6 +3,8 @@ package com.example.movietimeapp;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
@@ -11,11 +13,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class Account extends AppCompatActivity {
+    private Button editProfile, myTicket, logout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account);
+
+        editProfile = findViewById(R.id.btn_editprofile);
+        myTicket = findViewById(R.id.btn_myticket);
+        logout = findViewById(R.id.btn_logout);
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle("Account");
@@ -44,5 +51,30 @@ public class Account extends AppCompatActivity {
                 return false;
             }
         });
+
+        editProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentProfile = new Intent(Account.this,edit_profile.class);
+                startActivity(intentProfile);
+            }
+        });
+
+        myTicket.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentTicket = new Intent(Account.this,edit_profile.class);
+                startActivity(intentTicket);
+            }
+        });
+
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentLogout = new Intent(Account.this,login.class);
+                startActivity(intentLogout);
+            }
+        });
+
     }
 }
