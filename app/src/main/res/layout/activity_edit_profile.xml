@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:context=".edit_profile">
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/tv_Pname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="230dp"
+        android:text="USERNAME : "
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/et_Pname"
+        android:layout_width="285dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="130dp"
+        android:layout_marginTop="220dp"
+        android:background="@drawable/border1"
+        android:drawablePadding="5dp"
+        android:drawableTint="@color/white"
+        android:hint="Username"
+        android:inputType="text"
+        android:textColorHint="@color/white" />
+
+
+    <TextView
+        android:id="@+id/tv_Pphone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="280dp"
+        android:text="PHONE         : "
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/et_Pphone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="130dp"
+        android:layout_marginTop="270dp"
+        android:background="@drawable/border1"
+        android:drawablePadding="5dp"
+        android:drawableTint="@color/white"
+        android:inputType="number"
+        android:textColorHint="@color/white"
+        android:hint="Phone" />
+
+    <TextView
+        android:id="@+id/tv_Pemail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="330dp"
+        android:text="EMAIL          : "
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/et_Pemail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="130dp"
+        android:layout_marginTop="320dp"
+        android:background="@drawable/border1"
+        android:drawablePadding="5dp"
+        android:drawableTint="@color/white"
+        android:inputType="textEmailAddress"
+        android:textColorHint="@color/white"
+        android:hint="Email" />
+
+    <TextView
+        android:id="@+id/tv_Ppassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="380dp"
+        android:text="PASSWORD : "
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/et_Ppassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border1"
+        android:drawablePadding="5dp"
+        android:drawableTint="@color/white"
+        android:hint="Password"
+        android:layout_marginLeft="130dp"
+        android:layout_marginTop="370dp"
+        android:textColorHint="@color/white"
+        android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/btn_update"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="500dp"
+        android:text="Update"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:iconPadding="10dp" />
+
+
+</RelativeLayout>
